@@ -15,9 +15,11 @@
 
       {{> loginButtons}}
 
-      <form class="new-project">
-        <input type="type" name="name" placeholder="Type to add a new project" />
-      </form>
+      {{#if currentUser}}
+        <form class="new-project">
+          <input type="type" name="name" placeholder="Type to add a new project" />
+        </form>
+      {{/if}}
     </header>
 
     <ul>
@@ -34,6 +36,7 @@
 
   <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
 
-  <span class="name">{{name}}</span>
+  <span class="name"><strong>{{username}}</strong> - {{name}}</span>
+
 </li>
 </template>

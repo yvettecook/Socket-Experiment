@@ -28,7 +28,9 @@ if (Meteor.isClient) {
 
       Projects.insert({
         name: name,
-        createdAt: new Date()
+        createdAt: new Date(),
+        owner: Meteor.userId(),
+        username: Meteor.user().username
       });
 
       event.target.name.value = "";
