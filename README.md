@@ -8,3 +8,6 @@ Aim:
 Tools:
 
 * Meteor 1.0.0
+
+
+Deployed using Meteor to: [tick_box_experiment.meteor.com/](http://tick_box_experiment.meteor.com/)
