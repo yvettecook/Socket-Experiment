@@ -6,4 +6,21 @@ if (Meteor.isClient) {
       return Projects.find({});
     }
   });
+
+  Template.body.events({
+    "submit .new-project": function (event) {
+
+      var name = event.target.name.value;
+
+      Projects.insert({
+        name: name,
+        createdAt: new Date()
+      });
+
+      event.target.name.value = "";
+
+      return false
+
+    }
+  })
 }
