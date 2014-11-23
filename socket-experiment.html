@@ -20,5 +20,11 @@
 </body>
 
 <template name="project">
-  <li>{{name}}</li>
+  <li class="{{#if checked}}checked{{/if}}">
+  <button class="delete">&times;</button>
+
+  <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+  <span class="name">{{name}}</span>
+</li>
 </template>

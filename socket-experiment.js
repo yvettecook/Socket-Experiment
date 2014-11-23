@@ -22,4 +22,14 @@ if (Meteor.isClient) {
       return false;
     }
   })
+
+  Template.project.events({
+    "click .toggle-checked": function () {
+      Projects.update(this._id, {$set: {checked: ! this.checked}});
+    },
+    "click .delete": function () {
+      Projects.remove(this._id);
+    }
+  });
+
 }

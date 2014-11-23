@@ -61,7 +61,7 @@ form {
   font-size: 1em;
 }
 
-.new-task input:focus{
+.new-project input:focus{
   outline: 0;
 }
 
@@ -87,7 +87,7 @@ li {
   border-bottom: #eee solid 1px;
 }
 
-li .text {
+li .name {
   margin-left: 10px;
 }
 
@@ -95,7 +95,7 @@ li.checked {
   color: #888;
 }
 
-li.checked .text {
+li.checked .name {
   text-decoration: line-through;
 }
 
@@ -122,7 +122,7 @@ header .hide-completed {
     clear: both;
   }
 
-  .new-task input {
+  .new-project input {
     padding-bottom: 5px;
   }
 }
