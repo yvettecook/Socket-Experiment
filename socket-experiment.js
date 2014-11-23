@@ -3,7 +3,7 @@ Projects = new Mongo.Collection("projects");
 if (Meteor.isClient) {
   Template.body.helpers({
     projects: function() {
-      return Projects.find({});
+      return Projects.find({}, {sort: {createdAt: -1}});
     }
   });
 
@@ -19,8 +19,7 @@ if (Meteor.isClient) {
 
       event.target.name.value = "";
 
-      return false
-
+      return false;
     }
   })
 }
