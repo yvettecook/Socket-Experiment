@@ -14,7 +14,7 @@ if (Meteor.isClient) {
 
       Projects.insert({
         name: name,
-        createdAt: new Date()
+        createdAt: new Date(),
       });
 
       event.target.name.value = "";
@@ -29,7 +29,11 @@ if (Meteor.isClient) {
     },
     "click .delete": function () {
       Projects.remove(this._id);
+    },
+    "click #product-box": function () {
+      Projects.update(this._id, {$set: { product: 'done' }});
     }
   });
+
 
 }
