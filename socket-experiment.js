@@ -19,7 +19,6 @@ if (Meteor.isClient) {
       return Projects.find({checked: {$ne: true}}).count();
     }
 
-
   });
 
   Template.body.events({
@@ -51,4 +50,7 @@ if (Meteor.isClient) {
     }
   });
 
+  Accounts.ui.config({
+    passwordSignupFields: "USERNAME_ONLY"
+  });
 }
