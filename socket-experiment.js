@@ -2,8 +2,15 @@ Projects = new Mongo.Collection("projects");
 
 if (Meteor.isClient) {
   Template.body.helpers({
-    projects: function() {
-      return Projects.find({}, {sort: {name: 1}});
+    projects: function () {
+      if (Session.get("hideCompleted")) {
+        return Projects.find({checked: {$ne: true}}, {sort: {name: 1}});
+      } else {
+        return Projects.find({}, {sort: {name: 1}});
+      }
+    },
+    hideCompleted: function () {
+      return Session.get("hideCompleted");
     }
   });
 
@@ -20,6 +27,10 @@ if (Meteor.isClient) {
       event.target.name.value = "";
 
       return false;
+    },
+
+    "change .hide-completed input": function (event) {
+      Session.set("hideCompleted", event.target.checked);
     }
   })
 
