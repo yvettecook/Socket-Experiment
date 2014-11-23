@@ -2,6 +2,7 @@ Projects = new Mongo.Collection("projects");
 
 if (Meteor.isClient) {
   Template.body.helpers({
+
     projects: function () {
       if (Session.get("hideCompleted")) {
         return Projects.find({checked: {$ne: true}}, {sort: {name: 1}});
@@ -9,9 +10,16 @@ if (Meteor.isClient) {
         return Projects.find({}, {sort: {name: 1}});
       }
     },
+
     hideCompleted: function () {
       return Session.get("hideCompleted");
+    },
+
+    incompleteCount: function() {
+      return Projects.find({checked: {$ne: true}}).count();
     }
+
+
   });
 
   Template.body.events({
