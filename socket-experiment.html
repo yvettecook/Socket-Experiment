@@ -1,14 +1,21 @@
 <head>
-  <title>socket-experiment</title>
+  <title>Tick Box Trackathon</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <div class="container">
+    <header>
+      <h1>Tick Box Trackathon</h1>
+    </header>
 
-  {{> hello}}
+    <ul>
+      {{#each projects}}
+        {{> project}}
+      {{/each}}
+    </ul>
+  </div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="project">
+  <li>{{name}}</li>
 </template>
